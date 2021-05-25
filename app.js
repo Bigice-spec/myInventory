@@ -7,7 +7,8 @@ const bodyParser = require('body-parser')
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://bigice:bigiceUser@cluster0.rpxqy.mongodb.net/inventory?retryWrites=true&w=majority';
+var dev_db_url = 'mongodb+srv://bigice:bigiceUser@cluster0.rpxqy.mongodb.net/inventory?retryWrites=true&w=majority'
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;

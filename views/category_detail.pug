@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .boxes
+    a.box1.btn.btn-danger(href=category.url+'/delete')  Delete Category
+    a.box2.btn.btn-info(href=category.url+'/update')  Update Category
+    hr 
+  hr
+  h1.title #{category.name}
+
+  .row.justify-content-around
+    each item in category_items
+      .col-sm-4
+        .card.w-75(style='margin-top: 20px')
+          a.card-block.stretched-link.text-decoration-none(href=item.url)
+            img.card-img-top(src=`/uploads/${item.img}` alt='Card image cap')
+
+            .card-body
+              h3.card-title
+                h3 #{item.name}
+              hr
+              h6.card-text
+                h6 #{item.summary} #{item.measure} #{item.price}

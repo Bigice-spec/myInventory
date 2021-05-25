@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+
+  div(style='color: #00FFFF; background-image: url(/images/groceryimg.jpeg); background-size: 100%; background-repeat: no-repeat; height: 70vh')
+    if error
+      p Error getting dynamic content.
+    else
+      p The library has the following record counts:
+
+      ul
+        li #[strong Fruits Types:] !{data.fruit_count}
+        li #[strong Cereals Types:] !{data.cereal_count}

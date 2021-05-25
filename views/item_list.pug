@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+
+  each item in item_list
+
+    .card(style='width: 18rem;')
+      img.card-img-top(src=`/uploads/${item.img}` alt='Card image cap')
+
+      .card-body
+        h5.card-title
+          a(href=item.url) #{item.name}
+        hr
+        p.card-text
+          p #{item.summary}
+  else
+    p There are no items.

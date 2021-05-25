@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    .row.justify-content-around
+      .card.col.col-md-4.col-sm-12(style='width: 18rem;')
+          img.card-img-top(src=`/uploads/${item.img}` alt='Card image cap')
+
+          .card-body
+            h3.card-title
+              h3 #{item.name}
+            hr
+            h5.card-text
+              h5 #{item.summary} #{item.measure} #{item.price}
+            hr
+            a.btn.btn-primary(href=item.url+'/delete')  Delete Item
+            hr
+            a.btn.btn-primary(href=item.url+'/update')  Update Item

@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z", crossorigin="anonymous")
+    script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+  body
+    #mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-animate-left(style='display:none')
+      button.w3-bar-item.w3-button.w3-large(onclick='w3_close()') Close X
+      a.w3-bar-item.w3-button(href='/catalog/categories') CATEGORIES
+      hr
+      each category in category_list ? category_list : []
+         a.w3-bar-item.w3-button(href=category.url) #{category.name}
+      br
+      p OTHERS
+      hr
+      a.w3-bar-item.w3-button(href='/catalog/category/create') Add Type Category
+      a.w3-bar-item.w3-button(href='/catalog/item/create') Add Type Item
+    #main
+      .w3-teal
+        button#openNav.w3-button.w3-teal.w3-xlarge(onclick='w3_open()') ☰
+        .w3-container
+          a.navbar-brand(href='/catalog') GROCERIES INVENTORY
+      .w3-container
+        block content
+    script.
+      function w3_open() {
+      document.getElementById("main").style.marginLeft = "25%";
+      document.getElementById("mySidebar").style.width = "25%";
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("openNav").style.display = 'none';
+      }
+      function w3_close() {
+      document.getElementById("main").style.marginLeft = "0%";
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("openNav").style.display = "inline-block";
+      }

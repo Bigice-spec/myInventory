@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1.title= title
+  .container
+    .row.justify-content-around
+      each category in category_list
+        .card.col.col-md-4.col-sm-12(style='width: 18rem;')
+          a.card-block.stretched-link.text-decoration-none(href=category.url)
+            img.card-img-top(src=`/uploads/${category.img}` alt='Card image cap')
+
+            .card-body
+              h5.card-title
+                h2 #{category.name}
+              p.card-text
+                p #{category.summary}
+
+      else
+        p There are no categories.

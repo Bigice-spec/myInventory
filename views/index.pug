@@ -2,10 +2,11 @@ extends layout
 
 block content
   h1.title= title
-  .container
-    .row.justify-content-around
-      each category in category_list
-        .card.col.col-md-4.col-sm-12(style='width: 18rem;')
+    
+  .row.justify-content-around
+    each category in category_list
+      .col-sm-4
+        .card.w-75(style='margin-top: 20px')
           a.card-block.stretched-link.text-decoration-none(href=category.url)
             img.card-img-top(src=`/uploads/${category.img}` alt='Card image cap')
 
@@ -15,5 +16,5 @@ block content
               p.card-text
                 p #{category.summary}
 
-      else
-        p There are no categories.
+    else
+      p There are no categories.
